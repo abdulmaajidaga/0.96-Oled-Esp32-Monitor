@@ -137,6 +137,8 @@ void loop() {
 - **ENTER (short press)**: Select item / Go back from sub-screen
 - **ENTER (long press)**: Go back to main menu
 
+> **Note:** The button handling is not fully polished. UP/DOWN buttons need to be pressed quickly for single steps, otherwise they may scroll twice. ENTER requires a slightly longer press to register. It works, but could use improvement.
+
 ### Menu Screens
 1. **CPU** - Usage percentage, core count
 2. **Memory** - RAM usage and capacity
