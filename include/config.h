@@ -24,12 +24,12 @@
 // ============================================
 // WIFI SETTINGS - UPDATE THESE!
 // ============================================
-#define WIFI_SSID           "dlink-F1D7"
-#define WIFI_PASSWORD       "Admin123"
+#define WIFI_SSID           "YourWiFiSSID"
+#define WIFI_PASSWORD       "YourWiFiPassword"
 
 // Laptop telemetry server address
 // Run the Python script on your laptop, then update this IP
-#define TELEMETRY_HOST      "192.168.0.145"
+#define TELEMETRY_HOST      "YourLaptopIP"  // e.g. "192.168.0.145"
 #define TELEMETRY_PORT      5000
 #define TELEMETRY_ENDPOINT  "/telemetry"
 

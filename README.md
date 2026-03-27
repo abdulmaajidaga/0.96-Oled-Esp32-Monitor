@@ -2,6 +2,12 @@
 
 A real-time laptop telemetry monitoring system using an ESP32-S3 microcontroller and a 0.96" OLED display (128x64). Displays CPU, RAM, GPU, Network, and Disk statistics.
 
+## Demo
+
+![Demo](assets/demo.mp4)
+
+![Screenshots](assets/screenshots.png)
+
 ## Features
 
 - **Real-time Monitoring**: CPU usage, RAM usage, GPU load & temperature, Network speeds, Disk activity
@@ -98,38 +104,6 @@ GPIO 6    ----->  ENTER Button ----> GND
    ```
 4. The server will start on port 5000
 
-## I2C Scanner
-
-If your OLED display isn't working, run this I2C scanner to verify the connection and find the display address:
-
-1. Create a new file or replace `main.cpp` temporarily with:
-
-```cpp
-#include <Arduino.h>
-#include <Wire.h>
-
-void setup() {
-    Serial.begin(115200);
-    Wire.begin(8, 9);  // SDA=8, SCL=9
-    Serial.println("I2C Scanner");
-}
-
-void loop() {
-    for (byte addr = 1; addr < 127; addr++) {
-        Wire.beginTransmission(addr);
-        if (Wire.endTransmission() == 0) {
-            Serial.print("Device found at 0x");
-            Serial.println(addr, HEX);
-        }
-    }
-    Serial.println("Scan complete\n");
-    delay(3000);
-}
-```
-
-2. Upload and open Serial Monitor (115200 baud)
-3. You should see `Device found at 0x3C` if the OLED is connected correctly
-
 ## Usage
 
 ### Navigation
@@ -179,26 +153,6 @@ void loop() {
 #define DATA_REFRESH_MS     2000    // Fetch data every 2 seconds
 #define MENU_ANIMATION_MS   16      // ~60fps rendering
 ```
-
-## Troubleshooting
-
-### OLED Not Turning On
-- Check I2C wiring (SDA to GPIO 8, SCL to GPIO 9)
-- Run the I2C scanner above to verify connection
-- Verify OLED address is 0x3C
-
-### WiFi Not Connecting
-- ESP32 only supports 2.4GHz WiFi (not 5GHz)
-- Check SSID and password in config.h
-
-### No Data Showing
-- Ensure Python server is running on laptop
-- Verify laptop IP address matches `TELEMETRY_HOST`
-- Check firewall isn't blocking port 5000
-
-### Buttons Not Responding
-- Check button wiring (GPIO to button to GND)
-- Verify correct GPIO pins in config.h
 
 ## Dependencies
 
