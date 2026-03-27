@@ -4,9 +4,9 @@ A real-time laptop telemetry monitoring system using an ESP32-S3 microcontroller
 
 ## Demo
 
-<img src="assets/demo.gif" width="600">
+![Demo](assets/demo.gif)
 
-<img src="assets/ss.png" width="600">
+<img src="assets/ss.png" width="800">
 
 ## Features
 
